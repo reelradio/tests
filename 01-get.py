@@ -1,6 +1,10 @@
 # 01 test simple get of site pages
 from time import sleep
 from selenium import webdriver
+
+print(f'running test {1:2}')
+
+# launch
 driver = webdriver.Firefox()
 
 # get main site
