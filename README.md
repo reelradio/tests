@@ -19,13 +19,20 @@ pip install -r requirements.txt
 
 Then install a browser driver:
 https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/
-then add the driver file to the `venv/bin` directory.
+and add the driver file to the `venv/bin` directory.
 
 I've used the `geckodriver` for Firefox in the python scripts.
 
-## Running the tests
 
-Ensire your venv is activated.
+## When returning after closing terminal
+
+Ensure your venv is activated
+
+```
+. venv/bin/activate
+```
+
+## Running the tests
 
 Either run the tests individually, ie:
 
