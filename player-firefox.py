@@ -2,6 +2,8 @@
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.firefox.service import Service
 
 print(f'running test {2:2}')
 print("the embedded player requires login")
@@ -9,7 +11,7 @@ username = input("username: ")
 password = input("password: ")
 
 # launch
-driver = webdriver.Firefox()
+driver = webdriver.Firefox(service=Service(executable_path=GeckoDriverManager().install()))
 
 # login
 driver.get('https://zed.dev.reelradio.com/user/main.php')
