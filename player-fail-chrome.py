@@ -15,15 +15,15 @@ sleep(1)
 # switch to iframe
 iframe = driver.find_element(by=By.ID, value='reel-content')
 driver.switch_to.frame(iframe)
-sleep(1)
+input("press enter to continue")
 
 # navigate to a collection and start an exhibit
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='COLLECTIONS').click()
-sleep(1)
+input("press enter to continue")
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='David Adams').click()
-sleep(1)
+input("press enter to continue")
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='Tom Shannon, WKBW Buffalo').click()
-sleep(5)
+input("press enter to continue")
 
 # done
 driver.quit()

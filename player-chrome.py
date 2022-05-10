@@ -18,6 +18,7 @@ driver.get('https://zed.dev.reelradio.com/user/main.php')
 sleep(1)
 driver.find_element(by=By.NAME, value='username').send_keys(username)
 driver.find_element(by=By.NAME, value='password').send_keys(password)
+input("press enter to continue")
 driver.find_element(by=By.NAME, value='sublogin').click()
 sleep(1)
 
@@ -32,11 +33,11 @@ sleep(1)
 
 # navigate to a collection and start an exhibit
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='COLLECTIONS').click()
-sleep(1)
+input("press enter to continue")
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='David Adams').click()
-sleep(1)
+input("press enter to continue")
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='Tom Shannon, WKBW Buffalo').click()
-sleep(5)
+input("press enter to continue")
 
 # done
 driver.quit()
