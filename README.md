@@ -23,12 +23,6 @@ and add the driver file to the `venv/bin` directory.
 
 I've used the `geckodriver` for Firefox in the python scripts.
 
-Install `webdriver-manager` for Python to have easy access to multiple browser drivers.
-
-Simply run
-```
-pip install webdriver-manager
-``` 
 https://github.com/SergeyPirogov/webdriver_manager contains instructions for how to use different drivers in your code.
 
 

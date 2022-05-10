@@ -18,14 +18,18 @@ driver.get('https://zed.dev.reelradio.com/search.php')
 sleep(5)
 search_input = driver.find_element(by=By.NAME, value='search_query')
 search_input.send_keys('Tom Shannon' + Keys.ENTER)
-sleep(5)
+input("Press Enter to continue...")
 
 search_input.clear()
 search_input.send_keys('Sacramento' + Keys.ENTER)
-sleep(5)
+input("Press Enter to continue...")
 
 search_input.clear()
 search_input.send_keys('tina delgado' + Keys.ENTER)
-sleep(5)
+input("Press Enter to continue...")
+
+driver.find_element(by=By.NAME, value='search_query').clear()
+driver.find_element(by=By.NAME, value='search_query').send_keys('' + Keys.ENTER)
+input("Press Enter to continue...")
 
 driver.quit()
