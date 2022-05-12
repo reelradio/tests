@@ -10,6 +10,8 @@ from selenium.webdriver.chrome.service import Service
 
 opts, args = getopt.getopt(sys.argv[1:], "d", ["debug"])
 
+print("Running test " + sys.argv[0])
+
 print("the embedded player requires login")
 username = input("username: ")
 password = getpass()
@@ -22,7 +24,7 @@ driver.get('https://zed.dev.reelradio.com/user/main.php')
 sleep(1)
 driver.find_element(by=By.NAME, value='username').send_keys(username)
 driver.find_element(by=By.NAME, value='password').send_keys(password)
-wait(opts)
+wait.pause(opts)
 driver.find_element(by=By.NAME, value='sublogin').click()
 sleep(1)
 
@@ -37,11 +39,11 @@ sleep(1)
 
 # navigate to a collection and start an exhibit
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='COLLECTIONS').click()
-wait(opts)
+wait.pause(opts)
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='David Adams').click()
-wait(opts)
+wait.pause(opts)
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='Tom Shannon, WKBW Buffalo').click()
-wait(opts)
+wait.pause(opts)
 
 # done
 driver.quit()
