@@ -48,3 +48,14 @@ Or run all of the tests:
 for f in *.py; do python "$f"; done
 ```
 
+To pause execution after each action, enable debug mode. To continue execution, hit `Enter` in the terminal
+
+```
+python get-firefox.py -d
+```
+
+or
+
+```
+python get-firefox.py --debug
+```

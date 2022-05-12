@@ -1,21 +1,21 @@
 # 01 test simple get of site pages
 import sys, getopt
 from getpass import getpass
-import wait
 from time import sleep
+import wait
+from webbrowser import get
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from webdriver_manager.firefox import GeckoDriverManager
-from selenium.webdriver.firefox.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 opts, args = getopt.getopt(sys.argv[1:], "d", ["debug"])
 
 print("the embedded player requires login")
 username = input("username: ")
 password = getpass()
-
 # launch
-driver = webdriver.Firefox(service=Service(executable_path=GeckoDriverManager().install()))
+driver = webdriver.Chrome(service=Service(executable_path=ChromeDriverManager().install()))
 
 # login
 driver.get('https://zed.dev.reelradio.com/user/main.php')
@@ -40,8 +40,28 @@ wait(opts)
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='David Adams').click()
 wait(opts)
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='Tom Shannon, WKBW Buffalo').click()
-wait(opts)
+wait(opts, wait=10)
+
+#wait the exhibit, then replay it
+driver.switch_to.default_content()
+driver.execute_script("document.querySelector('#audioplayer').wait();")
+wait(opts, 5)
+driver.execute_script("document.querySelector('#audioplayer').play();")
+wait(opts, 5)
+
+#Change/mute volume
+driver.execute_script("document.querySelector('#audioplayer').volume = 0.5;")
+wait(opts, 5)
+driver.execute_script("document.querySelector('#audioplayer').volume = 0;")
+wait(opts, 5)
+driver.execute_script("document.querySelector('#audioplayer').volume = 0.2;")
+wait(opts, 5)
+#Seek to a specific time
+driver.execute_script("document.querySelector('#audioplayer').currentTime = 60;")
+wait(opts, 5)
+driver.execute_script("document.querySelector('#audioplayer').currentTime = 1200;")
+wait(opts, 5)
+driver.execute_script("document.querySelector('#audioplayer').wait();")
 
 # done
 driver.quit()
-
