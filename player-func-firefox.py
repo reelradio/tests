@@ -42,28 +42,28 @@ wait.pause(opts)
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='David Adams').click()
 wait.pause(opts)
 driver.find_element(by=By.PARTIAL_LINK_TEXT, value='Tom Shannon, WKBW Buffalo').click()
-wait(opts, wait=10)
+wait.paus(opts, wait=10)
 
 #wait the exhibit, then replay it
 driver.switch_to.default_content()
-driver.execute_script("document.querySelector('#audioplayer').wait();")
-wait(opts, 5)
+driver.execute_script("document.querySelector('#audioplayer').pause();")
+wait.pause(opts, 5)
 driver.execute_script("document.querySelector('#audioplayer').play();")
-wait(opts, 5)
+wait.pause(opts, 5)
 
 #Change/mute volume
 driver.execute_script("document.querySelector('#audioplayer').volume = 0.5;")
-wait(opts, 5)
+wait.pause(opts, 5)
 driver.execute_script("document.querySelector('#audioplayer').volume = 0;")
-wait(opts, 5)
+wait.pause(opts, 5)
 driver.execute_script("document.querySelector('#audioplayer').volume = 0.2;")
-wait(opts, 5)
+wait.pause(opts, 5)
 #Seek to a specific time
 driver.execute_script("document.querySelector('#audioplayer').currentTime = 60;")
-wait(opts, 5)
+wait.pause(opts, 5)
 driver.execute_script("document.querySelector('#audioplayer').currentTime = 1200;")
-wait(opts, 5)
-driver.execute_script("document.querySelector('#audioplayer').wait();")
+wait.pause(opts, 5)
+driver.execute_script("document.querySelector('#audioplayer').pause();")
 
 # done
 driver.quit()
